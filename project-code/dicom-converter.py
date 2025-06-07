@@ -1,8 +1,8 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 dicom_converter.py
-version: 1.1.0
+version: 1.2.0
 author: Alejandro Ferrari
 contact: aleferrari.uy@gmail.com 
 
@@ -32,6 +32,13 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Mapeo de formatos para PIL
+FORMAT_MAP = {
+    'jpg': 'JPEG',
+    'png': 'PNG',
+    'tiff': 'TIFF'
+}
 
 
 def convert_dicom(
@@ -67,8 +74,11 @@ def convert_dicom(
         # Crear carpeta destino si no existe
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
+        # Determinar formato PIL correcto
+        pil_fmt = FORMAT_MAP.get(fmt.lower(), fmt.upper())
+
         # Guardar imagen
-        img.save(output_path, format=fmt.upper())
+        img.save(output_path, format=pil_fmt)
         msg = f"Guardado: {output_path}"
         print(f"[✔] {msg}")
         logger.info(f"SUCCESS: {input_path} -> {output_path}")
@@ -122,9 +132,7 @@ def main():
             print(f"No se encontraron archivos DICOM en {inp}")
             sys.exit(1)
         for f in files:
-            # Base sin extensión
             base = os.path.splitext(os.path.basename(f))[0]
-            # Obtener fecha de adquisición si existe
             try:
                 ds_tmp = pydicom.dcmread(f, stop_before_pixels=True)
                 date = ds_tmp.get('AcquisitionDate') or ds_tmp.get('AcquisitionDateTime', '')[:8]
@@ -135,7 +143,6 @@ def main():
             out_path = os.path.join(out, out_name)
             convert_dicom(f, out_path, fmt, args.center, args.width)
     else:
-        # Archivo único
         base = os.path.splitext(os.path.basename(inp))[0]
         try:
             ds_tmp = pydicom.dcmread(inp, stop_before_pixels=True)
@@ -143,7 +150,6 @@ def main():
         except Exception:
             date = ''
         suffix = f"_{date}" if date else ''
-        # Si output es carpeta, construir nombre
         if os.path.isdir(out):
             out_path = os.path.join(out, f"{base}{suffix}.{fmt}")
         else:
