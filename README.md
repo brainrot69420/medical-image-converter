@@ -5,17 +5,23 @@ Converts a DICOM file or directory of files to JPG, PNG, or TIFF files
 
 Script that converts DICOM files (.dcm) to images (JPG, PNG, TIFF) from the command line.
 
+---
+
 ## Includes:
 - Batch processing of a directory or individual file
 - Choice of output format from among three available formats
 - Insertion of the image acquisition date into the output file name
 - Logging of conversion and error logs in conversion.log
 
+---
+
 ## 100% Python code. Requires the following libraries:
 
 - [Pydicom](https://pydicom.github.io/) - to open DICOM/DCM files
 - [Pillow](https://pillow.readthedocs.io/en/stable/) - to create and save JPG, PNG, or TIFF images
 - [NumPy](https://numpy.org/) - to manipulate pixel arrays
+
+---
 
 ## Execution
 
@@ -28,18 +34,24 @@ Installation of dependencies:
 ~~~
 pip install pydicom pillow numpy
 ~~~
-Usage:
+### Usage:
 ~~~
 dicom_converter.py [-h] [-f {jpg,png,tiff}] [-c CENTER] [-w WIDTH] input_path output_path
 ~~~
-positional arguments:
+🟢 **positional arguments:**
+
   input_path                                        .dcm file or directory with .dcm files
+
   output_path                                       Output file or destination directory
 
-options:
+🟢 **options:**
+
   -h, --help                                        Show this help message and exit
+  
   -f {jpg,png,tiff}, --format {jpg,png,tiff}        Output format (default: jpg)
+  
   -c CENTER, --center CENTER                        Window Center for image contrast
+  
   -w WIDTH, --width WIDTH                           Window Width for image contrast
 
 
@@ -71,6 +83,7 @@ options:
 [✔] Guardado: /home/alejandro/salida/image-000361_20061012.png
 ~~~
 
-
+---
+---
 
 
