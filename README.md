@@ -1,7 +1,7 @@
-# medical-imaging-converter
+# ⚙ medical-imaging-converter 
 Converts a DICOM file or directory of files to JPG, PNG, or TIFF files
 
-*Script name:* dicom_converter.py
+*Script name:* **dicom_converter.py**
 
 Script that converts DICOM files (.dcm) to images (JPG, PNG, TIFF) from the command line.
 
