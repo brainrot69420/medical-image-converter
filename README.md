@@ -1,4 +1,4 @@
-# ⚙ medical-imaging-converter 
+# ⚙ medical-image-converter 
 Converts a DICOM file or directory of files to JPG, PNG, or TIFF files
 
 *Script name:* **dicom_converter.py**
