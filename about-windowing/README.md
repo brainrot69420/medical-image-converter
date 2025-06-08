@@ -1,1 +1,2 @@
 # Windowing
+![](./assets/craneo.webp)
