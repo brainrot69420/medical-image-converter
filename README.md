@@ -84,6 +84,23 @@ dicom_converter.py [-h] [-f {jpg,png,tiff}] [-c CENTER] [-w WIDTH] input_path ou
 ~~~
 
 ---
+
+## 🌲 Repository directories tree
+~~~
+/
+|--- project-code           -> Contains the last code of the script
+|
+|--- initial-prototype      -> Contains the initial script from which the project arose.
+|
+|--- about-windowing        -> Documents how windowing works in DICOM images.
+|
+|--- dicom-series-000001    -> Contains a dicom images series for tests.
+|
+|--- interesting-facts      -> Contains various information related to DICOM.
+~~~
+
+
+---
 ---
 
 
