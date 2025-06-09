@@ -88,7 +88,7 @@ dicom_converter.py [-h] [-f {jpg,png,tiff}] [-c CENTER] [-w WIDTH] input_path ou
 ## 🌲 Repository directories tree
 ~~~
 /
-|--- project-code           -> Contains the last code of the script
+|--- script                 -> Contains the last code of the script
 |
 |--- initial-prototype      -> Contains the initial script from which the project arose.
 |
